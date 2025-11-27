@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { TechCarousel } from "../components/Carousel";
 ---
 
 <html lang="es">
@@ -7,16 +8,9 @@ import "../styles/global.css";
     <meta charset="utf-8" />
     <title>Landing Jook</title>
   </head>
-
-  <body class="font-sans">
-    <main class="min-h-screen flex flex-col items-center justify-center gap-32">
-      <section class="text-center text-sm md:text-base">
-        Tecnologías que dominamos
-      </section>
-
-      <section class="text-center text-sm md:text-base">
-        Empresas que confían en nosotros
-      </section>
+  <body class="min-h-screen">
+    <main class="min-h-screen flex flex-col items-center justify-center">
+      <TechCarousel client:load />
     </main>
   </body>
 </html>
