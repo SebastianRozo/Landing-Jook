@@ -1,0 +1,71 @@
+---
+import ImgContactMe from '../assets/ImgContactMe.jpg'
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+---
+<div class="flex justify-between gap-12 items-center py-16 px-8">
+  <div>
+    <img src={ImgContactMe.src} alt="Imagen de contacto"
+         class="rounded-tr-[40px] rounded-bl-[40px] w-96 h-[500px] object-cover" />
+  </div>
+
+  <div class="w-70">
+    <form>
+      <div class="mb-20">
+        <input
+          type="text"
+          class="w-full bg-transparent border-b-2 border-gray-500
+                 focus:outline-none focus:border-gray-200 pb-1
+                 text-sm text-gray-100 placeholder:text-gray-500"
+          placeholder="Nombre Completo"
+        />
+      </div>
+
+      <div class="mb-20">
+        <input
+          type="email"
+          class="w-full bg-transparent border-b-2 border-gray-500
+                 focus:outline-none focus:border-gray-200 pb-1
+                 text-sm text-gray-100 placeholder:text-gray-500"
+          placeholder="Correo Electrónico"
+        />
+      </div>
+
+      <div class="mb-20">
+        <input
+          type="text"
+          class="w-full bg-transparent border-b-2 border-gray-500
+                 focus:outline-none focus:border-gray-200 pb-1
+                 text-sm text-gray-100 placeholder:text-gray-500"
+          placeholder="Mensaje"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="bg-white text-black px-10 py-3 rounded-full text-sm font-medium">
+        Contactanos
+      </button>
+    </form>
+  </div>
+
+  <div class="m-4 text-sm text-gray-100">
+    <div class="mb-20">
+      <h4 class="font-semibold">Contacto</h4>
+      <p class="text-gray-300">jookcorreogmail</p>
+    </div>
+    <div class="mb-20">
+      <h4 class="font-semibold">Ubicación</h4>
+      <p class="text-gray-300 text-justify">Cúcuta, Norte de Santander</p>
+    </div>
+    <div class="mb-20">
+      <h4 class="font-semibold">Redes Sociales</h4>
+      <ul class="flex p-2 gap-4">
+        <li><FaFacebook className="w-9 h-9" /></li>
+        <li><FaInstagram className="w-9 h-9" /></li>
+        <li><FaTwitter className="w-9 h-9" /></li>
+      </ul> 
+    </div>
+  </div>
+</div>
