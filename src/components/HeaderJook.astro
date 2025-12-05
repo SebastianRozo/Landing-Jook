@@ -8,18 +8,20 @@ import JookSimpleSINFONDO from "../assets/JookSimpleSINFONDO.svg";
            rounded-full bg-black border border-white/10 shadow-xl"
   >
     <div class="flex items-center">
-      <img src={JookSimpleSINFONDO.src} alt="Logo de Jook" class="w-8 h-8" />
+      <a href="#Home"><img src={JookSimpleSINFONDO.src} alt="Logo de Jook" class="w-8 h-8" /></a>
     </div>
 
     <ul class="flex flex-1 justify-center gap-20 text-xs text-gray-200">
-      <li>Nosotros</li>
-      <li>Tecnologías</li>
-      <li>Servicios</li>
-      <li>Clientes</li>
+      <li><a href="#Nosotros" class="hover:text-white transition-colors cursor-pointer">Nosotros</a></li>
+      <li><a href="#Tecnologias" class="hover:text-white transition-colors cursor-pointer">Tecnologías</a></li>
+      <li><a href="#Servicios" class="hover:text-white transition-colors cursor-pointer">Servicios</a></li>
+      <li><a href="#Clientes" class="hover:text-white transition-colors cursor-pointer">Clientes</a></li>
     </ul>
-
-    <button class="px-4 py-1 text-xs text-white border border-white/40 rounded-full">
+    <a href="#Contacto">
+      <button class="px-4 py-1 text-xs text-white border border-white/40 rounded-full">
       Contactanos
     </button>
+    </a>
+    
   </nav>
 </header>

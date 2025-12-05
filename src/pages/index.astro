@@ -26,18 +26,20 @@ import QA from "../assets/QA.png"
     <main class="min-h-screen flex flex-col items-center justify-center gap-32">
 
       <HeaderJook client:load/>
-      <section>
+      <section id="Home">
         
           <h1 class="font-bold text-9xl text-center mb-10">Soluciones SaaS para desafíos reales</h1>
        
         
       </section>
-
+      <section id="Tecnologias"> 
+        <TechCarousel client:load />
+      </section>
       <!-- Carousel de Tecnologías -->
-      <TechCarousel client:load />
+      
 
       <!-- Sección de Tecnologías -->
-      <section class="text-center text-sm md:text-base">
+      <section class="text-center text-sm md:text-base" id="Servicios">
         <span class="text-5xl font-semibold"><p>Proyectos Realizados</p></span>
         
         <p class="text-center max-w-4xl mx-auto text-base px-4 p-5">
@@ -82,7 +84,7 @@ import QA from "../assets/QA.png"
 
 
       <!-- Sección de Empresas que confían en nosotros -->
-      <section class="text-center text-sm md:text-base">
+      <section class="text-center text-sm md:text-base" id="Clientes">
         <span class="text-5xl font-semibold"><p>Empresas que confían en nosotros</p></span>
         <CardProjects
           img={LogoFrontera.src}
@@ -92,7 +94,7 @@ import QA from "../assets/QA.png"
       </section>
 
       <!--Sección de equipo de trabajo -->
-      <section class="text-center text-sm md:text-base">
+      <section class="text-center text-sm md:text-base" id="Nosotros">
         <span class="text-5xl font-semibold"><p>Nuestro equipo de trabajo</p></span>
         <div class="flex gap-2 justify-center flex-wrap mt-10">
           <CardTeam
@@ -124,7 +126,7 @@ import QA from "../assets/QA.png"
         
       </section>
       <!-- Sección de Contacto -->
-      <section>
+      <section id="Contacto">
         <div class="flex justify-center text-5xl font-semibold">
           <h2>Contáctanos y trabajemos juntos</h2>
         </div>
