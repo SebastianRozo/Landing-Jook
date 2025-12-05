@@ -57,7 +57,7 @@ export function TechCarousel() {
 
   return (
     <section className="w-full max-w-6xl mx-auto pt-10 pb-20 text-center">
-      <h2 className="text-2xl md:text-3xl font-semibold mb-10">
+      <h2 className="text-5xl md:text-3xl font-semibold mb-10">
         Tecnologías que dominamos
       </h2>
       <div className="flex items-center justify-center gap-3 md:gap-5 h-[220px]">
