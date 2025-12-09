@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import type { IconType } from "react-icons"
 import {
   SiReact,
@@ -36,19 +36,6 @@ const technologies: Tech[] = [
 
 export function TechCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (typeof window !== "undefined") {
-        setIsMobile(window.innerWidth < 640) // breakpoint "sm" de Tailwind
-      }
-    }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
 
   const prev = () => {
     setActiveIndex(prev =>
@@ -62,8 +49,8 @@ export function TechCarousel() {
     )
   }
 
-  // En móvil solo usamos el item central, en desktop los 5
-  const offsets = isMobile ? [0] : [-2, -1, 0, 1, 2]
+  // Siempre 5 posiciones: 2 izq, centro, 2 der
+  const offsets = [-2, -1, 0, 1, 2]
   const visibleIndexes = offsets.map(offset => {
     const idx = (activeIndex + offset + technologies.length) % technologies.length
     return idx
@@ -76,18 +63,19 @@ export function TechCarousel() {
       </h2>
 
       <div className="flex items-center justify-center">
-        <div className="flex items-center justify-center gap-3 md:gap-5 min-h-[190px] sm:min-h-[210px] md:min-h-[220px]">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-5 min-h-[190px] sm:min-h-[210px] md:min-h-[220px]">
           {visibleIndexes.map((techIndex, position) => {
             const tech = technologies[techIndex]
             const { Icon } = tech
 
-            const isCenter = isMobile ? true : position === 2
-            const isNearSide = !isMobile && (position === 1 || position === 3)
+            const isCenter = position === 2
+            const isNearSide = position === 1 || position === 3
+            const isFarSide = position === 0 || position === 4
 
             const baseCard =
               "rounded-[18px] border flex flex-col items-center justify-center " +
               "transition-all duration-300 ease-out " +
-              "w-[260px] max-w-[80vw] sm:max-w-none " +
+              "w-[220px] sm:w-[260px] " +
               "h-[170px] sm:h-[190px]"
 
             const centerStyles =
@@ -102,17 +90,17 @@ export function TechCarousel() {
             const farStyles =
               "bg-black/70 border-white/5 opacity-30 scale-90 text-white/55"
 
-            let cardStyles = centerStyles
-            if (!isMobile) {
-              cardStyles = farStyles
-              if (isNearSide) cardStyles = nearStyles
-              if (isCenter) cardStyles = centerStyles
-            }
+            let cardStyles = farStyles
+            if (isNearSide) cardStyles = nearStyles
+            if (isCenter) cardStyles = centerStyles
+
+            // En móvil solo mostramos la central: los laterales se ocultan
+            const visibility = isCenter ? "flex" : "hidden sm:flex"
 
             return (
               <div
                 key={`${tech.name}-${techIndex}`}
-                className={`${baseCard} ${cardStyles}`}
+                className={`${baseCard} ${cardStyles} ${visibility}`}
               >
                 <span className="mb-3 text-base sm:text-lg font-semibold">
                   {tech.name}
