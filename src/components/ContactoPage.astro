@@ -57,7 +57,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"
       <div>
         <textarea
           name="mensaje"
-          rows="3"
+          rows="1"
           class="w-full bg-transparent border-b-2 border-gray-500
                  focus:outline-none focus:border-gray-200 pb-1
                  text-sm text-gray-100 placeholder:text-gray-500
@@ -86,28 +86,14 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"
   </div>
 
   <!-- Info de contacto -->
-  <div class="w-full lg:w-1/3 m-4 text-sm text-gray-100 space-y-10">
+  <div class="w-full lg:w-1/3 flex flex-col justify-center items-center lg:items-start text-center lg:text-left text-sm text-gray-100 space-y-10">
     <div>
-      <h4 class="font-semibold">Contacto</h4>
+      <h4 class="font-semibold text-lg mb-2">Contacto</h4>
       <p class="text-gray-300">Jookcucuta@gmail.com</p>
     </div>
     <div>
-      <h4 class="font-semibold">Ubicación</h4>
+      <h4 class="font-semibold text-lg mb-2">Ubicación</h4>
       <p class="text-gray-300">Cúcuta, Norte de Santander</p>
-    </div>
-    <div>
-      <h4 class="font-semibold">Redes Sociales</h4>
-      <ul class="flex p-2 gap-4">
-        <li>
-          <FaFacebook className="w-8 h-8 transition-transform duration-200 hover:scale-110" />
-        </li>
-        <li>
-          <FaInstagram className="w-8 h-8 transition-transform duration-200 hover:scale-110" />
-        </li>
-        <li>
-          <FaTwitter className="w-8 h-8 transition-transform duration-200 hover:scale-110" />
-        </li>
-      </ul>
     </div>
   </div>
 </div>

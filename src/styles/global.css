@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -6,28 +7,29 @@
 
 body {
   @apply min-h-screen text-white antialiased;
+  font-family: 'Montserrat', sans-serif;
 
+  /* Fondo más oscuro */
   background:
     radial-gradient(circle at top center,
-      rgba(129, 99, 255, 0.55) 0,
-      transparent 55%
+      rgba(129, 99, 255, 0.15) 0,
+      transparent 45%
     ),
     radial-gradient(circle at 15% 40%,
-      rgba(56, 189, 248, 0.35) 0,
-      transparent 55%
+      rgba(56, 189, 248, 0.1) 0,
+      transparent 45%
     ),
     radial-gradient(circle at 85% 45%,
-      rgba(168, 85, 247, 0.45) 0,
-      transparent 60%
+      rgba(168, 85, 247, 0.15) 0,
+      transparent 50%
     ),
     radial-gradient(circle at 50% 120%,
-      rgba(15, 23, 42, 0.9) 0,
-      transparent 70%
+      rgba(15, 23, 42, 0.5) 0,
+      transparent 60%
     ),
     #02010b;
 
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -53,16 +55,13 @@ body {
   }
 }
 
-
 .fade-in-down {
   animation: fadeInDown 0.8s ease-out forwards;
 }
 
-
 .fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
-
 
 .fade-delay-1 {
   animation-delay: 0.15s;
@@ -74,4 +73,15 @@ body {
 
 .fade-delay-3 {
   animation-delay: 0.45s;
+}
+
+/* Animations that trigger on scroll via IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }

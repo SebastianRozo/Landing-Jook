@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { FiChevronDown } from "react-icons/fi"
 
 type CardLogoProps = {
+  group?: string
   Logo: string
   title?: string
   img: string
@@ -9,14 +10,35 @@ type CardLogoProps = {
   fecha?: string
 }
 
-function CardLogo({ Logo, title, img, Description, fecha }: CardLogoProps) {
+function CardLogo({ group, Logo, title, img, Description, fecha }: CardLogoProps) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(prev => !prev)
+  useEffect(() => {
+    const handleSync = (e: Event) => {
+      const customEvent = e as CustomEvent
+      // Solo sincronizar si están en el mismo grupo
+      if (customEvent.detail.group === group) {
+        setIsOpen(customEvent.detail.isOpen)
+      }
+    }
+    // Escuchar el evento personalizado para sincronizar
+    window.addEventListener("syncCardLogos", handleSync)
+    return () => window.removeEventListener("syncCardLogos", handleSync)
+  }, [group])
+
+  const toggle = () => {
+    const nextState = !isOpen
+    // Despachamos solo al grupo actual
+    window.dispatchEvent(
+      new CustomEvent("syncCardLogos", {
+        detail: { group, isOpen: nextState },
+      })
+    )
+  }
 
   return (
     <article
-      className="bg-slate-900 text-white p-6 rounded-xl shadow-lg
+      className="bg-slate-900/50 backdrop-blur-md text-white p-6 rounded-xl shadow-lg border border-white/10
                  transform transition-transform duration-300
                  hover:-translate-y-2 hover:shadow-2xl
                  w-full max-w-xl"
@@ -37,9 +59,6 @@ function CardLogo({ Logo, title, img, Description, fecha }: CardLogoProps) {
             <h3 className="text-lg sm:text-xl font-semibold text-white">
               {title}
             </h3>
-            <span className="text-[11px] text-gray-400">
-              Haz clic para ver detalles del proyecto
-            </span>
           </div>
         </div>
 
@@ -57,9 +76,9 @@ function CardLogo({ Logo, title, img, Description, fecha }: CardLogoProps) {
         }`}
       >
         <div
-          className="rounded-md bg-gradient-to-r from-[#181F23]/80 to-[#222B30]/80
+          className="rounded-md bg-transparent
                      flex flex-col sm:flex-row items-start sm:items-center
-                     p-4 sm:p-6 shadow-lg shadow-black/40 border border-gray-800
+                     pt-4 sm:pt-6 border-t border-white/10
                      gap-4 sm:gap-6"
         >
           <div className="flex-shrink-0">

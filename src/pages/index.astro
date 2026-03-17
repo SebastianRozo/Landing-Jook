@@ -14,6 +14,7 @@ import CardTeam from "../components/CardTeams/index.tsx";
 import Desarrollador from "../assets/Desarrollador.png";
 import GraphicDesigner from "../assets/Graphic-Designer.png";
 import QA from "../assets/QA.png";
+import JookSimpleSINFONDO from "../assets/JookSimpleSINFONDO.svg";
 ---
 
 <html lang="es" class="scroll-smooth">
@@ -63,167 +64,203 @@ import QA from "../assets/QA.png";
     />
   </head>
 
-  <body class="min-h-screen font-sans bg-black text-white">
-    <main
-      class="min-h-screen flex flex-col items-center gap-16 md:gap-24 lg:gap-32 px-4 md:px-8 lg:px-16"
-    >
-      <!-- NAV / HEADER -->
-      <HeaderJook />
+  <body class="font-sans bg-black text-white h-screen overflow-hidden">
+    <!-- NAV / HEADER -->
+    <HeaderJook />
 
+    <main
+      class="h-screen w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth relative"
+    >
       <!-- HERO -->
       <section
-        id="Home"
-        class="w-full max-w-6xl mx-auto text-center mt-10 md:mt-16"
+        id="Top"
+        class="w-full min-h-screen snap-start flex flex-col justify-center items-center text-center px-4 md:px-8 pt-20"
       >
         <h1
-          class="font-bold leading-tight text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl mb-6
-                 opacity-0 fade-in-down"
+          class="font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6
+                 opacity-0 fade-in-down max-w-5xl mx-auto drop-shadow-lg"
         >
           Soluciones SaaS para desafíos reales
         </h1>
       </section>
 
       <!-- TECNOLOGÍAS -->
-      <section id="Tecnologias" class="w-full">
-        <TechCarousel client:load />
+      <section id="Tecnologias" class="w-full min-h-screen snap-start flex flex-col justify-center items-center py-20 px-4 md:px-8">
+        <div class="reveal w-full max-w-7xl mx-auto">
+          <TechCarousel client:load />
+        </div>
       </section>
 
       <!-- PROYECTOS REALIZADOS -->
       <section
-        class="w-full max-w-6xl mx-auto text-center text-sm md:text-base"
+        class="w-full min-h-screen snap-start flex flex-col justify-center items-center text-sm md:text-base py-20 px-4 md:px-8"
         id="Servicios"
       >
-        <span
-          class="block text-3xl sm:text-4xl md:text-5xl font-semibold
-                 opacity-0 fade-in-up fade-delay-1"
-        >
-          Proyectos Realizados
-        </span>
+        <div class="w-full max-w-6xl mx-auto text-center reveal">
+          <span
+            class="block text-3xl sm:text-4xl md:text-5xl font-semibold mb-6"
+          >
+            Proyectos Realizados
+          </span>
 
-        <p
-          class="text-center max-w-4xl mx-auto text-base md:text-lg px-2 md:px-0 mt-5
-                 opacity-0 fade-in-up fade-delay-2"
-        >
-          Cuenta con nosotros para desarrollar la solución tecnológica que tu
-          empresa necesita. Creamos software a medida, adaptándonos a tus
-          procesos, objetivos y retos específicos. Integramos innovación y
-          calidad para que tu proyecto funcione tal como lo imaginas.
-        </p>
+          <p class="text-center max-w-4xl mx-auto text-base md:text-lg px-2 md:px-0 mb-10 text-gray-300">
+            Cuenta con nosotros para desarrollar la solución tecnológica que tu
+            empresa necesita. Creamos software a medida, adaptándonos a tus
+            procesos, objetivos y retos específicos. Integramos innovación y
+            calidad para que tu proyecto funcione tal como lo imaginas.
+          </p>
 
-        <!-- GRID 2x2 en desktop, 1x1 en mobile -->
-        <div
-          class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8
-                 items-stretch"
-        >
-          <CardLogo
-            client:load
-            Logo={Medicina.src}
-            title="Inventario para Farmacias"
-            img={Medicina.src}
-            Description="Una solución profesional que controla en tiempo real el stock de medicamentos, insumos y productos de venta libre, evitando quiebres y sobrantes. Gestiona lotes, fechas de vencimiento, proveedores y movimientos de almacén desde una única plataforma, garantizando trazabilidad y cumplimiento normativo."
-          />
-          <CardLogo
-            client:load
-            Logo={Calendario.src}
-            title="Sistema Control de Citas"
-            img={Calendario.src}
-            Description="Un software especializado que organiza y automatiza la programación de citas médicas, optimizando la agenda de los profesionales de salud y reduciendo tiempos de espera. Centraliza la gestión de pacientes, recordatorios y disponibilidad de consultorios en una plataforma segura y eficiente."
-          />
-          <CardLogo
-            client:load
-            Logo={ImagenProyecto.src}
-            title="Sistema Integral de Gestión de Clínicas"
-            img={ImagenProyecto.src}
-            Description="El software de gestión integral de clínica optimiza y centraliza la administración médica, financiera y operativa de un centro de salud, permitiendo gestionar pacientes, citas, historias clínicas, facturación e inventarios desde una sola plataforma segura y eficiente."
-          />
-          <CardLogo
-            client:load
-            Logo={Celu.src}
-            title="Sistema de Telemedicina"
-            img={Celu.src}
-            Description="Una plataforma avanzada que permite brindar consultas médicas en línea mediante videollamadas seguras, mensajería y uso compartido de documentos clínicos. Integra agenda, historias clínicas, recetas electrónicas y facturación para ofrecer atención remota eficiente, continua y centrada en el paciente."
-          />
+          <!-- GRID 2x2 en desktop, 1x1 en mobile -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch"
+          >
+            <CardLogo
+              client:load
+              group="row1"
+              Logo={Medicina.src}
+              title="Inventario para Farmacias"
+              img={Medicina.src}
+              Description="Una solución profesional que controla en tiempo real el stock de medicamentos, insumos y productos de venta libre, evitando quiebres y sobrantes. Gestiona lotes, fechas de vencimiento, proveedores y movimientos de almacén desde una única plataforma, garantizando trazabilidad y cumplimiento normativo."
+            />
+            <CardLogo
+              client:load
+              group="row1"
+              Logo={Calendario.src}
+              title="Sistema Control de Citas"
+              img={Calendario.src}
+              Description="Un software especializado que organiza y automatiza la programación de citas médicas, optimizando la agenda de los profesionales de salud y reduciendo tiempos de espera. Centraliza la gestión de pacientes, recordatorios y disponibilidad de consultorios en una plataforma segura y eficiente."
+            />
+            <CardLogo
+              client:load
+              group="row2"
+              Logo={ImagenProyecto.src}
+              title="Sistema Integral de Gestión de Clínicas"
+              img={ImagenProyecto.src}
+              Description="El software de gestión integral de clínica optimiza y centraliza la administración médica, financiera y operativa de un centro de salud, permitiendo gestionar pacientes, citas, historias clínicas, facturación e inventarios desde una sola plataforma segura y eficiente."
+            />
+            <CardLogo
+              client:load
+              group="row2"
+              Logo={Celu.src}
+              title="Sistema de Telemedicina"
+              img={Celu.src}
+              Description="Una plataforma avanzada que permite brindar consultas médicas en línea mediante videollamadas seguras, mensajería y uso compartido de documentos clínicos. Integra agenda, historias clínicas, recetas electrónicas y facturación para ofrecer atención remota eficiente, continua y centrada en el paciente."
+            />
+          </div>
         </div>
       </section>
 
       <!-- CLIENTES -->
       <section
-        class="w-full max-w-6xl mx-auto text-center text-sm md:text-base"
+        class="w-full min-h-screen snap-start flex flex-col justify-center items-center text-sm md:text-base py-20 px-4 md:px-8"
         id="Clientes"
       >
-        <span
-          class="block text-3xl sm:text-4xl md:text-5xl font-semibold
-                 opacity-0 fade-in-up fade-delay-1"
-        >
-          Empresas que confían en nosotros
-        </span>
+        <div class="w-full max-w-6xl mx-auto text-center reveal">
+          <span
+            class="block text-3xl sm:text-4xl md:text-5xl font-semibold mb-10"
+          >
+            Empresas que confían en nosotros
+          </span>
 
-        <div class="mt-8 flex justify-center">
-          <CardProjects
-            client:load
-            img={LogoFrontera.src}
-            Description="Empresa colombiana especializada en distribución y recarga de telefonía prepago. Líder local con innovación en canales digitales y gestión de puntos de venta."
-            fecha="Colaborando desde 2024 a 2025"
-          />
+          <div class="flex justify-center">
+            <CardProjects
+              client:load
+              img={LogoFrontera.src}
+              Description="Empresa colombiana especializada en distribución y recarga de telefonía prepago. Líder local con innovación en canales digitales y gestión de puntos de venta."
+              fecha="Colaborando desde 2024 a 2025"
+            />
+          </div>
         </div>
       </section>
 
       <!-- EQUIPO -->
       <section
-        class="w-full max-w-6xl mx-auto text-center text-sm md:text-base"
+        class="w-full min-h-screen snap-start flex flex-col justify-center items-center text-sm md:text-base py-20 px-4 md:px-8"
         id="Nosotros"
       >
-        <span
-          class="block text-3xl sm:text-4xl md:text-5xl font-semibold
-                 opacity-0 fade-in-up fade-delay-1"
-        >
-          Nuestro equipo de trabajo
-        </span>
+        <div class="w-full max-w-6xl mx-auto text-center reveal">
+          <span
+            class="block text-3xl sm:text-4xl md:text-5xl font-semibold mb-12"
+          >
+            Nuestro equipo de trabajo
+          </span>
 
-        <div class="flex gap-4 md:gap-6 justify-center flex-wrap mt-10">
-          <CardTeam
-            client:load
-            title="Desarrollador Full Stack"
-            img={Desarrollador.src}
-            Description="Lidera el diseño de arquitecturas SaaS y la integración entre frontend y backend."
-          />
-          <CardTeam
-            client:load
-            title="Desarrollador Full Stack"
-            img={Desarrollador.src}
-            Description="Encargado de la implementación de funcionalidades core y del rendimiento de los servicios."
-          />
-          <CardTeam
-            client:load
-            title="Project Manager"
-            img={Desarrollador.src}
-            Description="Responsable de automatización, despliegues y conexión con servicios de terceros."
-          />
-          <CardTeam
-            client:load
-            title="UI/UX Designer"
-            img={GraphicDesigner.src}
-            Description="Crea interfaces claras y modernas y mantiene la coherencia visual de la marca."
-          />
-          <CardTeam
-            client:load
-            title="QA Engineer"
-            img={QA.src}
-            Description="Asegura la calidad del software, revisa requerimientos y realiza validaciones finales."
-          />
+          <div class="flex gap-4 sm:gap-6 justify-center flex-wrap max-w-4xl mx-auto items-stretch">
+            <CardTeam
+              client:load
+              title="Desarrollador Full Stack"
+              img={Desarrollador.src}
+              Description="Lidera el diseño de arquitecturas SaaS y la integración entre frontend y backend."
+            />
+            <CardTeam
+              client:load
+              title="Desarrollador Full Stack"
+              img={Desarrollador.src}
+              Description="Encargado de la implementación de funcionalidades core y del rendimiento de los servicios."
+            />
+            <CardTeam
+              client:load
+              title="Project Manager"
+              img={Desarrollador.src}
+              Description="Responsable de automatización, despliegues y conexión con servicios de terceros."
+            />
+            <CardTeam
+              client:load
+              title="UI/UX Designer"
+              img={GraphicDesigner.src}
+              Description="Crea interfaces claras y modernas y mantiene la coherencia visual de la marca."
+            />
+            <CardTeam
+              client:load
+              title="QA Engineer"
+              img={QA.src}
+              Description="Asegura la calidad del software, revisa requerimientos y realiza validaciones finales."
+            />
+          </div>
         </div>
       </section>
 
-      <!-- CONTACTO -->
-      <section id="Contacto" class="w-full max-w-6xl mx-auto mb-12">
-        <div
-          class="flex justify-center text-center text-3xl sm:text-4xl md:text-5xl font-semibold mb-8
-                 opacity-0 fade-in-up fade-delay-2"
-        >
-          <h2>Contáctanos y trabajemos juntos</h2>
+      <!-- CONTACTO Y FOOTER -->
+      <section id="Contacto" class="w-full min-h-screen snap-start flex flex-col justify-between pt-24">
+        <div class="flex-1 flex flex-col justify-center items-center px-4 md:px-8 text-center reveal">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-8">Contáctanos y trabajemos juntos</h2>
+          <ContactoPage />
         </div>
-        <ContactoPage />
+
+        <footer class="w-full bg-[#0d0f1a]/80 py-2 text-center border-t border-white/10 shrink-0 select-none flex flex-col items-center">
+          <img src={JookSimpleSINFONDO.src} alt="Jook Logo" class="w-12 h-12 object-contain" />
+          <p class="text-[10px] text-gray-500 font-semibold">&copy; {new Date().getFullYear()} Todos los derechos reservados.</p>
+        </footer>
       </section>
+
     </main>
+
+    <script is:inline>
+      if (typeof window !== "undefined") {
+        document.addEventListener("DOMContentLoaded", () => {
+          const reveals = document.querySelectorAll('.reveal');
+
+          const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+          };
+
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // observer.unobserve(entry.target); // Si deseas que la animación ocurra solo una vez
+              } else {
+                entry.target.classList.remove('active'); // Remover si quieres que se repita al subir/bajar
+              }
+            });
+          }, revealOptions);
+
+          reveals.forEach(reveal => {
+            observer.observe(reveal);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
